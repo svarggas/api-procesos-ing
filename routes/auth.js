@@ -70,7 +70,7 @@ router.post("/signin", async (req, res) => {
         const accessToken = generateAccessToken(user)
         const refreshToken = generateRefreshToken(user)
 
-        User.findByIdAndUpdate(newUser._id, {
+        User.findByIdAndUpdate(user._id, {
             refresh_token: refreshToken
         }, { new: true })
         .then(() => {
